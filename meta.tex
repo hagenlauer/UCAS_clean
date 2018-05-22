@@ -1,0 +1,74 @@
+
+% IEEE new theorem
+% \newtheorem{definition}{Definition}  % IEEE defines no definition, ACM does.
+
+%\newtheorem{assumption}{Assumption} % ...
+%\newtheorem{axiom}{Axiom}
+%\newtheorem{mytheorem}{Theorem}
+%\newtheorem{eg}{Example}
+
+\theoremstyle{definition}
+\newtheorem{prince}{Principle}
+% \newtheorem{example}{Example}[section]
+
+
+% \usepackage{cite} % DO NOT USE WITH ACM SETTINGS
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{algorithmic}
+\usepackage[]{algorithm2e}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{booktabs}
+\usetikzlibrary{graphs,graphs.standard,quotes}
+\usetikzlibrary{shapes}
+\usetikzlibrary{arrows,automata}
+
+
+\usepackage{pgfplots}
+
+\usepackage[font=small,labelfont=bf,tableposition=top]{caption}
+
+\DeclareCaptionLabelFormat{andtable}{#1~#2  \&  \tablename~\thetable}
+
+
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\usepackage{blindtext}
+\presetkeys{todonotes}{inline,backgroundcolor=red!20!white}{}
+\newcommand{\solved} [1] {\todo[backgroundcolor=green!20!white]{SOLVED: #1} }
+
+% Hide solved comments:
+\renewcommand{\solved} [1] {}
+
+\newcommand{\ie} {\emph{i.e. }}
+% \renewcommand{\eg} {\emph{e.g. }}
+
+% turn TODO's OFF for PUBLICATION:
+\renewcommand{\todo}[1]{}
+
+% Author specific comments
+\newcommand{\hl} [1] { \todo{HL: #1} }
+\newcommand{\hlsolved} [1] { \solved{HL: #1} }
+\newcommand{\pr} [1] { \todo{PR: #1} }
+\newcommand{\prsolved} [1] { \solved{PR: #1} }
+
+\newcommand{\mysubsubsection}[1]{\medskip\noindent\textbf{#1.}}
+\newcommand{\mysubsubsubsection}[1]{\medskip\noindent\textbf{#1.}}
+%\usepackage{sty/tikz-uml}
+%\usepackage{sty/pgf-umlsd}

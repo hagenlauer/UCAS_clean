@@ -1,0 +1,85 @@
+% \documentclass[a4paper]{article}
+% LNCS gibberish, 11pt LNCS cls
+% \documentclass[11pt]{llncs}
+% IEEE Settings
+% public version
+% \documentclass[journal,12pt,onecolumn,draftclsnofoot]{IEEEtran}
+% conference version
+% \documentclass[conference,10pt]{IEEEtran}
+
+% ACM Settings
+\documentclass[sigconf]{acmart}  % two column acm conference paper
+% \documentclass[journal]{acmart}  % signle column acm journal
+
+
+\input{meta} %  most options are in there
+
+\input{acminfo} 
+% \input{ieeedoi}
+
+\begin{document}
+
+\title{User-Centered Attestation for Layered and Decentralized Systems (Preprint)}
+
+% Use this for multiple affiliations in IEEE
+%\author{
+%    \IEEEauthorblockN{Hagen Lauer\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}, Ahmad Salehi S.\IEEEauthorrefmark{1}, Carsten Rudolph\IEEEauthorrefmark{1}, Surya Nepal\IEEEauthorrefmark{2}}
+%    \IEEEauthorblockA{Monash University\IEEEauthorrefmark{1} \{hagen.lauer, ahmad.salehishahraki, carsten.rudolph\}@monash.edu}
+%    \IEEEauthorblockA{Data61 - CSIRO\IEEEauthorrefmark{2} \{surya.nepal\}@data61.csiro.au}
+%}
+
+\author{Hagen Lauer}
+\affiliation{%
+  \institution{Monash University}
+}
+\email{hagen.lauer@monash.edu}
+
+\author{Ahmad Salehi S.}
+\affiliation{%
+  \institution{Monash University}
+}
+\email{ahmad.salehishahraki@monash.edu}
+
+\author{Carsten Rudolph}
+\affiliation{%
+  \institution{Monash University}
+}
+\email{carsten.rudolph@monash.edu}
+
+\author{Surya Nepal}
+\affiliation{%
+  \institution{Data61 / CSIRO}
+}
+\email{surya.nepal@data61.csiro.au}
+
+% The default list of authors is too long for headers}
+\renewcommand{\shortauthors}{H. Lauer et al.}
+
+% \maketitle % IEEE needs that here, ACM doesnt
+
+% FORCE PAGE NUMBERS IN IEEE Template
+% \thispagestyle{plain} %  page number on pg 1
+\pagestyle{plain} %  page numbers from pg 2 onward
+
+\input{abstract}
+\maketitle  % ACM makes title after abstract
+
+\input{intro}
+\input{tvp} 
+\input{vattest} 
+\input{ucas} 
+\input{related}
+\input{conclusion} 
+\input{ack}
+
+% References
+
+\bibliography{bib}{}  
+\bibliographystyle{IEEEtranS}
+% ACM BIB
+%\bibliographystyle{ACM-Reference-Format}
+
+% Springer
+% \bibliographystyle{splncs}
+
+\end{document}

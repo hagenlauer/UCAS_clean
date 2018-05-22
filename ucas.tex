@@ -1,0 +1,42 @@
+\section{User-Centered Attestation}
+
+The observations of Section~\ref{subsec:observations} will serve as defining considerations of the attestation strategy entitled \emph{User-Centered Attestation} (UCAS) (Tab.~\ref{tab:3}). 
+
+\begin{table}[!h]
+  \caption{User-centered attestation approach in fulfillment with attestation principles.}
+\label{tab:3}
+  \begin{center}
+    \begin{tabular}{p{1cm}|p{(\columnwidth /3) * 2}} %6.5 plus whatever seems to fill two column
+ \toprule
+ Principle & Fulfillment \\
+ \midrule
+ % Fresh information
+ \ref{pri:1} & Measured Boot, IMA~\cite{IMA} providing load time integrity.\\ % going to runtime integrity will just tighten the gap, logically there is no difference - i.e. it still relies on robustness of code / sanity of rest of platform processes 
+ \midrule
+ % Comprehensive information
+ \ref{pri:2} & Causally ordered, bottom-up event log. \\ 
+ \midrule
+ % Constrained disclosure
+ \ref{pri:3} & Peer-to-peer trust propagation, no attestation authorities. \\
+ \midrule
+ % Semantic explicitness
+ \ref{pri:4} & Levels of trust, transitive relations, effects of partial attestations, and use of safe-guards. \\
+ \midrule
+ % Trustworthy mechanism
+ \ref{pri:5} & VMs should be capable of gathering information of lower layers and supply them to peers acting as appraisers.\\
+ \midrule
+ % Layer linking 
+ \ref{pri:6} & Published VM evidence must contain proof that the included lower layer evidence is related, i.e. the lower layer has created or is currently hosting the VM.\\
+ \midrule
+ % Scalability 
+ \ref{pri:7} & 1:n relation between TPM quotes and upper layer attestations, TPM quotes could be published periodically such that quotes of upper layers can be related to them according to the semantics in principle~\ref{pri:4}. \\
+ \bottomrule
+  \end{tabular}
+  \end{center}
+\end{table}
+
+\emph{Discussion.} Unlike separate and hypervisor-based attestation, UCAS assumes connectivity only to a VM. Appraisers, which could be any device in an IoT scenario, must therefore receive evidence of the VM running a service in question along with information of its lower layers such that their appraisal is based on comprehensive information. Such evidence must be gathered bottom-up so as to reflect causalities like boot order and relations between components loading or instantiating other components. Additionally, changes to localities of VMs or changes in a lower layer must be measured, recorded, and reported accordingly. In order to enable attestations initiated by VMs and with VMs as the only point of contact for appraisers, lower layer information must be propagated such that the evidence a VM supplies automatically reflects a current state.
+
+As far as the semantics are concerned, trusting a VM must be treated as a decision an appraiser has to make. Components involved in measurement and reporting processes in layers above trustworthy hardware may not carry the predicate \emph{trusted} by default. Based on this notion, trust levels for components and layers can be assigned to facilitate a non-binary notion of trust and trustworthiness. Using a non-binary and layer specific notion of trust enables reasoning about the trustworthiness of supplied evidence. As a first step towards semantic explicitness, vTPM quotes will hold trust levels based on the dependencies of the vTPM component itself and ultimately appraisers can decide whether the trust level of an attestation is sufficient or if further evidence is required to resolve issues. Having this explicitness will in turn further aid scalability issues, both for evidence gathering and evaluation. 
+
+Finally, explicit semantics in combination with trustworthy mechanisms will serve to derive trust propagation mechanisms. Trust propagation itself is essential to decentralized systems as individual nodes might not be directly accessible to a \emph{curious} party. Being able to trust appraisals, effectively reusing it, significantly reduces the amount of individual attestation requests to nodes and remedies scalability issues related to TPM quotes. 
